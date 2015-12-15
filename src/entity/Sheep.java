@@ -7,14 +7,12 @@ import render.Resource;
 public class Sheep implements IRenderable {
 	private static int SheepColor; // 0-20
 	private static int SheepIndex;
-	private static boolean IsShot;
 	private static Beam beam;
 	private static int state = 0;
 
 	public Sheep() {
 		SheepColor = 0;
 		SheepIndex = 0;
-		IsShot = false;
 		state = 0;
 	}
 
@@ -32,14 +30,6 @@ public class Sheep implements IRenderable {
 
 	public synchronized static void setSheepIndex(int sheepIndex) {
 		SheepIndex = sheepIndex;
-	}
-
-	public static boolean isIsShot() {
-		return IsShot;
-	}
-
-	public static void setIsShot(boolean isShot) {
-		IsShot = isShot;
 	}
 
 	public static Beam getBeam() {
