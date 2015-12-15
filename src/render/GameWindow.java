@@ -34,6 +34,10 @@ public class GameWindow extends JFrame {
 		if (frame instanceof GameScreen) {
 			AudioUtility.stopSound("Intro");
 		}
+		if (frame instanceof GameTitle) {
+			AudioUtility.stopSound("GameSound");
+			AudioUtility.playSound("Intro");
+		}
 		getContentPane().add(frame);
 		getContentPane().validate();
 		pack();
