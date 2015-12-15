@@ -49,8 +49,18 @@ public class GameOver extends JPanel {
 		this.add(pMessage);
 		if (!HighScoreUtility.isAdd()) {
 			JLabel back = new JLabel();
+			JPanel pp = new JPanel(new GridLayout(2, 1));
+			pp.setBorder(BorderFactory.createEmptyBorder(0, 280, 20, 280));
+			JLabel add = new JLabel("");
+			add.setFont(Resource.standardFont);
+			add.setForeground(Color.white);
+			add.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 300));
+			pp.add(add);
 
-			back.setBorder(BorderFactory.createEmptyBorder(20, 0, 100, 200));
+			pp.setOpaque(false);
+			this.add(pp);
+
+			back.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 350));
 			ClassLoader cloader = RenderableHolder.class.getClassLoader();
 			ImageIcon back0 = new ImageIcon(
 					cloader.getResource("image/Home0.png"));

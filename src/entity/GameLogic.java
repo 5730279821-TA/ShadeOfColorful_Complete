@@ -519,7 +519,7 @@ public class GameLogic {
 
 	}
 
-	public static void KillWolf(int color) {
+	public synchronized static void KillWolf(int color) {
 		for (Wolf a : wolves) {
 			if (a.getWolfColor() == color) {
 				a.setDestroyed(true);
@@ -541,7 +541,6 @@ public class GameLogic {
 	}
 
 	public void logicUpdate() {
-		System.out.println("WolfGen = " + wolfGen);
 		for (Wolf a : wolves) {
 			a.update();
 			if (a.collide(sheep) && !a.isDestroyed()) {
