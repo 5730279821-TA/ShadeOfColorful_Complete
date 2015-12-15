@@ -28,7 +28,7 @@ public class Sheep implements IRenderable {
 		return SheepIndex;
 	}
 
-	public synchronized static void setSheepIndex(int sheepIndex) {
+	public static void setSheepIndex(int sheepIndex) {
 		SheepIndex = sheepIndex;
 	}
 
