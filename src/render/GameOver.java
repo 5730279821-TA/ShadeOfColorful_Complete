@@ -50,7 +50,7 @@ public class GameOver extends JPanel {
 		if (!HighScoreUtility.isAdd()) {
 			JLabel back = new JLabel();
 
-			back.setBorder(BorderFactory.createEmptyBorder(0, 0, 100, 200));
+			back.setBorder(BorderFactory.createEmptyBorder(20, 0, 100, 200));
 			ClassLoader cloader = RenderableHolder.class.getClassLoader();
 			ImageIcon back0 = new ImageIcon(
 					cloader.getResource("image/Home0.png"));

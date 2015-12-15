@@ -21,7 +21,7 @@ import entity.Sheep;
 public class GameScreen extends JPanel {
 
 	private static JLabel Home;
-	private boolean PauseStatus;
+	private static boolean PauseStatus;
 
 	public GameScreen() {
 		Home = new JLabel();
@@ -45,16 +45,12 @@ public class GameScreen extends JPanel {
 
 				InputUtility.setPause(false);
 				if (!isPauseStatus()) {
+					
 					if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-						try {
-							Thread.sleep(100);
 							Sheep.setSheepIndex(0);
 							Sheep.setColor(0);
-						} catch (InterruptedException r) {
-							// e.printStackTrace();
-						}
-
 					}
+					
 					if (e.getKeyCode() == KeyEvent.VK_Q) {
 						Button.update(6);
 						InputUtility.keyRelease(e);
@@ -98,15 +94,9 @@ public class GameScreen extends JPanel {
 
 				if (!isPauseStatus()) {
 					if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-						Runnable r = new Runnable() {
-							@Override
-							public void run() {
-								AudioUtility.playSound("Attack");
-								Sheep.setSheepIndex(1);
-								GameLogic.KillWolf(Sheep.getSheepColor());
-							}
-						};
-						new Thread(r).start(); 
+						AudioUtility.playSound("Attack");
+						Sheep.setSheepIndex(1);
+						GameLogic.KillWolf(Sheep.getSheepColor());	
 					} 
 					
 					else if (e.getKeyCode() == KeyEvent.VK_Q) {
@@ -182,11 +172,11 @@ public class GameScreen extends JPanel {
 		});
 	}
 
-	public boolean isPauseStatus() {
+	public static boolean isPauseStatus() {
 		return PauseStatus;
 	}
 
-	public void setPauseStatus(boolean pauseStatus) {
+	public static void setPauseStatus(boolean pauseStatus) {
 		PauseStatus = pauseStatus;
 	}
 

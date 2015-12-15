@@ -519,7 +519,7 @@ public class GameLogic {
 
 	}
 
-	public synchronized static void KillWolf(int color) {
+	public static void KillWolf(int color) {
 		for (Wolf a : wolves) {
 			if (a.getWolfColor() == color) {
 				a.setDestroyed(true);

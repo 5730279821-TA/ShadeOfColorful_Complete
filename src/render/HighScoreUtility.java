@@ -114,9 +114,6 @@ public class HighScoreUtility {
 	 */
 	public static void recordHighScore(int score) {
 		if (!loadHighScore() || highScoreRecord == null) {
-			JOptionPane.showMessageDialog(null,
-					"Error loading highscore record", "Error",
-					JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		int index = highScoreRecord.length;
@@ -143,7 +140,7 @@ public class HighScoreUtility {
 				for (int i = 0; i < highScoreRecord.length; i++) {
 					write += highScoreRecord[i].getRecord() + "\n";
 				}
-				out.write(getXORed(write));
+				out.write(write);
 				out.close();
 			} catch (IOException e1) {
 				JOptionPane.showMessageDialog(null,
@@ -202,7 +199,7 @@ public class HighScoreUtility {
 				str += (char) c;
 			}
 			in.close();
-			String[] records = getXORed(str).split("\n");
+			String[] records = str.split("\n");
 			for (int i = 0; i < highScoreRecord.length; i++) {
 				try {
 					highScoreRecord[i] = new HighScoreRecord(records[i]);
@@ -228,30 +225,13 @@ public class HighScoreUtility {
 				str += s + "\n";
 			}
 			str = str.trim();
-			out.write(getXORed(str));
+			out.write(str);
 			out.close();
 			return true;
 		} catch (IOException e1) {
 			highScoreRecord = null;
 			return false;
 		}
-	}
-
-	private static final byte[] key = "RmAAq2b5d8fjgu9dhher".getBytes();
-
-	// This method does both encryption and decryption
-	private static String getXORed(String in) {
-		byte[] inData = in.getBytes();
-		// Fill code
-		int count = 0;
-		for (int i = 0; i < inData.length; i++) {
-			inData[i] = (byte) (inData[i] ^ key[count]);
-			count++;
-			if (count == key.length)
-				count = 0;
-
-		}
-		return new String(inData);
 	}
 
 	public static void setReadFileName(String name) {
