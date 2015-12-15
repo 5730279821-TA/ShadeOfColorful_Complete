@@ -8,7 +8,6 @@ import render.GameScreen;
 import render.IRenderable;
 
 public class PlayerStatus implements IRenderable {
-	private Sheep sheep;
 	private static int Score;
 	private static int roundstate;
 
@@ -16,15 +15,6 @@ public class PlayerStatus implements IRenderable {
 		roundstate = 1;
 		Score = 0;
 	}
-
-	public Sheep getSheep() {
-		return sheep;
-	}
-
-	public void setSheep(Sheep sheep) {
-		this.sheep = sheep;
-	}
-
 	public static int getRoundstate() {
 		return roundstate;
 	}
