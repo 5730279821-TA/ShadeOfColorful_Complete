@@ -47,8 +47,8 @@ public class PlayerStatus implements IRenderable {
 		g2d.setColor(Color.WHITE);
 		g2d.drawString(getScore() + "", 1080, 70);
 		g2d.drawString("Round : " + getRoundstate() + "", 550, 70);
-		if(GameScreen.isPauseStatus()){
-		g2d.drawString("Pause",580,350);
+		if (GameScreen.isPauseStatus()) {
+			g2d.drawString("Pause", 580, 350);
 		}
 	}
 

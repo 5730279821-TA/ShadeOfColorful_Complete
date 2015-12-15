@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 import entity.GameManager;
 
 public class HighScore extends JPanel {
@@ -45,12 +44,12 @@ public class HighScore extends JPanel {
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				
+
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-			
+
 			}
 
 			@Override
